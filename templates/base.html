@@ -62,16 +62,18 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
 <!--                    <i class="fas fa-fw fa-cog"></i>-->
-                    <span>User</span>
+                    <span>Department</span>
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">User</h6>
-                        <a class="collapse-item" href=" {% static 'buttons.html' %} ">View user</a>
-<!--                        <a class="collapse-item" href=" {% static 'cards.html' %} ">Cards</a>-->
+                        <h6 class="collapse-header">Department</h6>
+                        <a class="collapse-item" href=" {% url 'dept_add' %} ">Add</a>
+                        <a class="collapse-item" href=" {% url 'dept_view' %} ">view</a>
                     </div>
                 </div>
             </li>
+
+
 
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
@@ -84,10 +86,35 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Utilities:</h6>
-                        <a class="collapse-item" href=" {% static 'utilities-color.html' %} ">Add</a>
-                        <a class="collapse-item" href=" {% static 'utilities-border.html' %} ">View</a>
+                        <a class="collapse-item" href=" {% url 'govregister' %} ">Add</a>
+                        <a class="collapse-item" href=" {% url 'viewgov' %} ">View</a>
 <!--                        <a class="collapse-item" href=" {% static 'utilities-animation.html' %} ">Animations</a>-->
 <!--                        <a class="collapse-item" href=" {% static 'utilities-other.html' %} ">Other</a>-->
+                    </div>
+                </div>
+
+            </li>
+              <hr class="sidebar-divider">
+                <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse"
+                    aria-expanded="true" aria-controls="collaps">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Appointment</span>
+                </a>
+                <div id="collapse" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Login Screens:</h6>
+                        <a class="collapse-item" href="admin_schedule_add">Add</a>
+                          <a class="collapse-item" href="admin_schedule_view">View</a>
+
+
+
+<!--                        <a class="collapse-item" href=" {% static 'register.html' %} ">Delete</a>-->
+<!--                        <a class="collapse-item" href=" {% static 'forgot-password.html' %} ">Forgot Password</a>-->
+<!--                        <div class="collapse-divider"></div>-->
+<!--                        <h6 class="collapse-header">Other Pages:</h6>-->
+<!--                        <a class="collapse-item" href=" {% static '404.html' %} ">404 Page</a>-->
+<!--                        <a class="collapse-item" href=" {% static 'blank.html' %} ">Blank Page</a>-->
                     </div>
                 </div>
             </li>
@@ -110,7 +137,9 @@
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Login Screens:</h6>
-                        <a class="collapse-item" href=" {% static 'login.html' %} ">view</a>
+                        <a class="collapse-item" href=" {% url 'complaints' %} ">view</a>
+
+
 <!--                        <a class="collapse-item" href=" {% static 'register.html' %} ">Delete</a>-->
 <!--                        <a class="collapse-item" href=" {% static 'forgot-password.html' %} ">Forgot Password</a>-->
 <!--                        <div class="collapse-divider"></div>-->
@@ -121,9 +150,9 @@
                 </div>
             </li>
 
-
-
         </ul>
+
+
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
@@ -175,43 +204,6 @@
                       {% endblock %}
 
 
-<!--                        &lt;!&ndash; Earnings (Monthly) Card Example &ndash;&gt;-->
-<!--                        <div class="col-xl-3 col-md-6 mb-4">-->
-<!--                            <div class="card border-left-success shadow h-100 py-2">-->
-<!--                                <div class="card-body">-->
-<!--                                    <div class="row no-gutters align-items-center">-->
-<!--                                        <div class="col mr-2">-->
-<!--                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">-->
-<!--                                               complaints</div>-->
-<!--&lt;!&ndash;                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>&ndash;&gt;-->
-<!--                                        </div>-->
-<!--                                        <div class="col-auto">-->
-<!--                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>-->
-<!--                                        </div>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-
-
-                        <!-- Pending Requests Card Example -->
-<!--                        <div class="col-xl-3 col-md-6 mb-4">-->
-<!--                            <div class="card border-left-warning shadow h-100 py-2">-->
-<!--                                <div class="card-body">-->
-<!--                                    <div class="row no-gutters align-items-center">-->
-<!--                                        <div class="col mr-2">-->
-<!--                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">-->
-<!--                                                Pending complaints</div>-->
-<!--&lt;!&ndash;                                            <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                        </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                        <div class="col-auto">&ndash;&gt;-->
-<!--&lt;!&ndash;                                            <i class="fas fa-comments fa-2x text-gray-300"></i>&ndash;&gt;-->
-<!--                                        </div>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
 
 
     <!-- Logout Modal-->
