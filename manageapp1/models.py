@@ -62,7 +62,7 @@ class Appointment(models.Model):
 
 
 class Uploads(models.Model):
-
+    user = models.ForeignKey(Login, on_delete=models.DO_NOTHING)
     department = models.ForeignKey(Department, on_delete=models.DO_NOTHING)
     subject = models.CharField(max_length=200, blank = True)
     document = models.FileField(upload_to='documents/')

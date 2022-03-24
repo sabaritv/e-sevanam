@@ -56,6 +56,11 @@ class DocumentForm(forms.ModelForm):
         fields = ('department' ,'subject','document')
 
 
+class ReplyForm(forms.ModelForm):
+    class Meta:
+        model = Uploads
+        fields = ('subject','certificate')
+
 class UserRegister(forms.ModelForm):
 
     # department = forms.ModelChoiceField(queryset=Department.objects.all())
@@ -66,7 +71,7 @@ class UserRegister(forms.ModelForm):
 
 class ScheduleAdd(forms.ModelForm):
     date = forms.DateField(widget=DateInput)
-    start_time = forms.TimeField(widget=TimeInput, )
+    start_time = forms.TimeField(widget=TimeInput,)
     end_time = forms.TimeField(widget=TimeInput, )
 
     class Meta:

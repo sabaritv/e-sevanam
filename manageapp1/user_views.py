@@ -96,12 +96,36 @@ def appointments(request):
 #     return render(request, 'user_uploadform.html', {'form': form})
 
 
+
+# def model_form_upload(request):
+#
+#
+#     if request.method == 'POST':
+#         form = DocumentForm(request.POST, request.FILES)
+#         if form.is_valid():
+#             form.save()
+#             return redirect('home')
+#     else:
+#              form = DocumentForm()
+#     return render(request, 'user_uploadform.html', {'form': form})
+
+
+
 def model_form_upload(request):
+    form = DocumentForm
+    u = request.user
     if request.method == 'POST':
         form = DocumentForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            obj = form.save(commit=False)
+            obj.user = u
+            obj.save()
+
             return redirect('home')
     else:
              form = DocumentForm()
     return render(request, 'user_uploadform.html', {'form': form})
+
+
+
+

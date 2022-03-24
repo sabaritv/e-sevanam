@@ -3,6 +3,7 @@ from django.urls import path
 
 from manageapp1 import views, admin_views, govt_views, user_views
 
+
 urlpatterns = [
     path('', views.home,name='home'),
     path('login_view/', views.login_view, name='login_view'),
@@ -28,7 +29,9 @@ urlpatterns = [
     path('user_add',user_views.user_add, name='user_add'),
     path('user_cmpadd',user_views.user_cmpadd, name='user_cmpadd'),
     path('user_home',views.user, name = 'user_home'),
+
     path("upload",user_views.model_form_upload, name = 'upload'),
+
     path('cmp',user_views.complaint, name = 'cmp'),
     path('take_appointment/<int:id>/',user_views.take_appointment, name='take_appointment'),
     path('user_appointment',user_views.appointments,name='user_appointment'),
@@ -43,6 +46,11 @@ urlpatterns = [
     path('approve_appointment/<int:id>/', govt_views.approve_appointment, name='approve_appointment'),
     path('reject_appointment/<int:id>/', govt_views.reject_appointment, name='reject_appointment'),
 
+
+
+    path('doc_view',govt_views.doc_view, name ='doc_view'),
+    # path('certificate/<int:id>/',govt_views.certificate,name='certificate')
+    path('entry/<int:id>/', govt_views.entry, name='entry')
 
 
 ]

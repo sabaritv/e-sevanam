@@ -1,6 +1,7 @@
 from django.contrib import messages
 from django.shortcuts import render, redirect
 from .filters import PlaceFilter, ComplaintsFilter
+from .forms import ReplyForm
 from .models import Complaints, Appointment, AppointmentSchedule, Uploads
 
 
@@ -57,12 +58,59 @@ def reject_appointment(request, id):
     return redirect('appointment_admin')
 
 
-def certificate(request, id):
+def doc_view(request):
+    uploads = Uploads.objects.all()
+    return render(request,'gov_doc_view.html',{'uploads':uploads})
+
+
+
+def certificate(request,id):
     uploads = Uploads.objects.get(id=id)
+    form = ReplyForm(instance=uploads or None)
     if request.method == 'POST':
+        form = ReplyForm(request.POST or None, request.FILES or None, instance=uploads or None)
         c = request.POST.get("reply")
+        p = request.POST.get("certificate")
         uploads.reply = c
+        uploads.certificate = p
         uploads.save()
         messages.info(request,'certificate/document is send to user')
         return redirect('cmp_gov')
-    return render(request,'gov_certificate_issue.html', {'uploads':uploads})
+    return render(request,'gov_certificate_issue.html', {'uploads':uploads,'form':form})
+#
+#
+def entry(request,id):
+    uploads = Uploads.objects.get(id=id)
+    if request.method == 'POST':
+        form = ReplyForm(request.POST, request.FILES)
+
+        if form.is_valid():
+            form.save()
+            return redirect('cmp_gov')
+    else:
+        form = ReplyForm()
+
+    return render(request, "entry.html", {
+        "form": form ,'uploads':uploads
+    })
+# def single_page(request, id):
+#     img = Uploads.objects.filter(id=id)
+#     profile = Uploads.objects.filter(id = request.user.id)
+#
+#     context = { "img": img, "profile": profile}
+#
+#     return render(request, "main/single_page.html", context)
+# def model_form_upload(request):
+#     form = DocumentForm
+#     u = request.user
+#     if request.method == 'POST':
+#         form = DocumentForm(request.POST, request.FILES)
+#         if form.is_valid():
+#             obj = form.save(commit=False)
+#             obj.user = u
+#             obj.save()
+#
+#             return redirect('home')
+#     else:
+#              form = DocumentForm()
+#     return render(request, 'user_uploadform.html', {'form': form})

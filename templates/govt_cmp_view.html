@@ -43,7 +43,7 @@
                     <td>{{n.date}}</td>
                     <td>
                         {% if n.reply == None %}
-                        <a href="{% url 'reply_complaint' n.id %}"">Reply Now</a>
+                        <a href="{% url 'reply_complaint'n.id %}">Reply Now</a>
                         {% else %}
                         {{n.reply}}
                         {% endif %}
