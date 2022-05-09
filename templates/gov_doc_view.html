@@ -41,7 +41,7 @@
 <!--                    <td><img src="{{ n.document.url }}" style="width:200px"/></td-->
                     <td>
                         {% if n.reply == None %}
-                        <a href="{% url 'entry' n.id %}">click</a>
+                        <a href="{% url 'certificate' n.id %}">click</a>
                         {% else %}
                         {{n.reply}}
                         {% endif %}

@@ -25,7 +25,7 @@ def user_add(request):
 
     return render(request, 'user_register.html', {'form1': form1, 'form2': form2})
 
-
+@login_required(login_url='login_view')
 def user_cmpadd(request):
     form=ComplaintForm
     u= request.user
@@ -47,7 +47,7 @@ def complaint(request):
     n = Complaints.objects.filter(user=request.user)
     return render(request, 'user_cmp_view.html', {'complaint': n})
 
-
+@login_required(login_url='login_view')
 def schedule_user(request):
     s = AppointmentSchedule.objects.all()
     scheduleFilter = ScheduleFilter(request.GET, queryset=s)
@@ -59,7 +59,7 @@ def schedule_user(request):
     return render(request, 'user_shedule.html', context)
 
 
-
+@login_required(login_url='login_view')
 def take_appointment(request, id):
     schedule = AppointmentSchedule.objects.get(id=id)
     u = User.objects.get(user=request.user)
@@ -78,7 +78,7 @@ def take_appointment(request, id):
     return render(request, 'take_appointment.html', {'schedule': schedule})
 
 
-
+@login_required(login_url='login_view')
 def appointments(request):
     u = User.objects.get(user=request.user)
     a = Appointment.objects.filter(user=u)
@@ -110,7 +110,7 @@ def appointments(request):
 #     return render(request, 'user_uploadform.html', {'form': form})
 
 
-
+@login_required(login_url='login_view')
 def model_form_upload(request):
     form = DocumentForm
     u = request.user
@@ -121,7 +121,7 @@ def model_form_upload(request):
             obj.user = u
             obj.save()
 
-            return redirect('home')
+            return redirect('user_home')
     else:
              form = DocumentForm()
     return render(request, 'user_uploadform.html', {'form': form})

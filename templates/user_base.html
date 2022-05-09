@@ -36,11 +36,13 @@
                 <div class="sidebar-brand-icon rotate-n-15">
 <!--                    <i class="fas fa-laugh-wink"></i>-->
                 </div>
-                <div class="sidebar-brand-text mx-3">Complaint management </div>
+                <div class="sidebar-brand-text mx-3">E-sevanam </div>
             </a>
 
 
 <li class="nav-item">
+
+
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
 <!--                    <i class="fas fa-fw fa-cog"></i>-->
@@ -55,7 +57,6 @@
                     </div>
                 </div>
             </li>
-
 
 
 
@@ -84,13 +85,14 @@
                     aria-expanded="true" aria-controls="collaps">
                     <i class="fas fa-fw fa-folder"></i>
                     <span>UPLOADS</span>
+
                 </a>
+
                 <div id="collapse" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Login Screens:</h6>
                         <a class="collapse-item" href="{% url 'upload' %} ">Add</a>
 <!--                          <a class="collapse-item" href="admin_schedule_view">View</a>-->
-
 
 
             </ul>
@@ -112,15 +114,16 @@
 
                 <!-- Topbar -->
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-
+<a class="btn btn-danger" href="logout_view"><span> Log Out</span> <i class="fa fa-sign-out"></i></a>
                     <!-- Sidebar Toggle (Topbar) -->
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                         <i class="fa fa-bars"></i>
+
                     </button>
- <div class="container" >
-         <a href="logout_view" class="btn btn-info btn-lg">
-          <span class="glyphicon glyphicon-log-out"></span> Log out
-        </a>
+<!-- <div class="container" >-->
+<!--         <a href="logout_view" class="btn btn-info btn-lg">-->
+<!--          <span class="glyphicon glyphicon-log-out"></span> Log out-->
+<!--        </a>-->
 
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
@@ -140,6 +143,8 @@
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
+
+
                                 </a>
                             </div>
                         </li>
@@ -192,6 +197,7 @@
 
 
     <!-- Logout Modal-->
+
     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">

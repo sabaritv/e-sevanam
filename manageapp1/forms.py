@@ -53,13 +53,13 @@ class DocumentForm(forms.ModelForm):
 
     class Meta:
         model = Uploads
-        fields = ('department' ,'subject','document')
+        fields = ('department','subject','document','email','contact_no')
 
 
-class ReplyForm(forms.ModelForm):
-    class Meta:
-        model = Uploads
-        fields = ('subject','certificate')
+# class ReplyForm(forms.ModelForm):
+#     class Meta:
+#         model = Uploads
+#         fields = ('subject','department','certificate')
 
 class UserRegister(forms.ModelForm):
 
@@ -89,3 +89,6 @@ class ScheduleAdd(forms.ModelForm):
         if date < datetime.date.today():
             raise forms.ValidationError("Date can't be in the past")
         return cleaned_data
+
+class SubscribeForm(forms.Form):
+    email = forms.EmailField()

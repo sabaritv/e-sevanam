@@ -80,7 +80,9 @@ WSGI_APPLICATION = 'cmpmanagement1.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        # 'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': str(os.path.join(BASE_DIR ,'db.sqlite3')),
+
     }
 }
 
@@ -132,3 +134,9 @@ STATICFILES_DIRS =[os.path.join(BASE_DIR,'static')]
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = "manageapp1.Login"
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'pythondjango102.futura@gmail.com'
+EMAIL_HOST_PASSWORD = 'gaibwpgvxyshowiw'

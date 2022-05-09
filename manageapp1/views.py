@@ -1,5 +1,6 @@
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 
@@ -19,18 +20,18 @@ def login_view(request):
             if user.is_staff:
                 return redirect('admin_home')
             elif user.is_govt:
-                return redirect('gov_home')
+                return redirect('cmp_gov')
             elif user.is_user:
                 return redirect('user_home')
         else:
                 messages.info(request, 'Invalid Credentials')
     return render(request, 'Modified_files/login.html')
 
-
+@login_required(login_url='login_view')
 def index(request):
     return render(request, 'Modified_files/admin.html')
 
-
+@login_required(login_url='login_view')
 def user(request):
     return render(request,'user_home.html')
 
@@ -38,7 +39,7 @@ def user(request):
 # def table(request):
 #     return render(request, 'table.html')
 
-
+@login_required(login_url='login_view')
 def gov(request):
     return render(request, 'Modified_files/gov.html')
 

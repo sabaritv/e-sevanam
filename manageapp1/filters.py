@@ -6,12 +6,12 @@ from django_filters import CharFilter, filters
 
 
 class PlaceFilter(django_filters.FilterSet):
-    schedule__department = CharFilter(label="", lookup_expr='icontains', widget=forms.TextInput(attrs={
+    schedule__department__name = CharFilter(label="", lookup_expr='icontains', widget=forms.TextInput(attrs={
         'placeholder': 'Search ', 'class': 'form-control'}))
 
     class Meta:
         model = Appointment
-        fields = ('schedule__department',)
+        fields = ('schedule__department__name',)
 
 
 class ScheduleFilter(django_filters.FilterSet):

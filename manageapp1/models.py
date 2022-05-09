@@ -66,6 +66,6 @@ class Uploads(models.Model):
     department = models.ForeignKey(Department, on_delete=models.DO_NOTHING)
     subject = models.CharField(max_length=200, blank = True)
     document = models.FileField(upload_to='documents/')
-    reply = models.TextField(null=True, blank=True)
-    certificate = models.FileField(upload_to='documents/')
+    email = models.EmailField()
+    contact_no = models.CharField(max_length=100)
 

@@ -3,11 +3,10 @@ from django.urls import path
 
 from manageapp1 import views, admin_views, govt_views, user_views
 
-
 urlpatterns = [
     path('', views.home,name='home'),
     path('login_view/', views.login_view, name='login_view'),
-    path('index', views.index, name="index"),
+    # path('index', views.index, name="index"),
     path('logout_view/', views.logout_view, name='logout_view'),
     path('gov', views.gov, name='gov'),
     path('admin_home', views.index, name='admin_home'),
@@ -49,8 +48,8 @@ urlpatterns = [
 
 
     path('doc_view',govt_views.doc_view, name ='doc_view'),
-    # path('certificate/<int:id>/',govt_views.certificate,name='certificate')
-    path('entry/<int:id>/', govt_views.entry, name='entry')
-
+    path('certificate/<int:id>/',govt_views.certificate,name='certificate'),
+    # path('entry/<int:id>/', govt_views.entry, name='entry')
+    path("mail", govt_views.subscribe, name='subscribe')
 
 ]
